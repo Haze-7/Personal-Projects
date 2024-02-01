@@ -1,4 +1,4 @@
-import java.io.File;
+ import java.io.File;
 import java.util.Scanner;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -9,21 +9,14 @@ import java.io.FileNotFoundException;
 
 public class Files {
 	
+	Scanner in = new Scanner(System.in);
+	private String username = "";
+	private String password = "";
+	private String securityQuestion = "";
+	private String securityAnswer = "";
+	
 	public void CreateUserFile() throws FileNotFoundException{
-		
-		
-		String username = "";
-		String password = "";
-		String securityQuestion = "";
-		String securityAnswer = "";
-		
-		int prev = 0;
-		int increment = 1;
-		String fileName = ("UserData" + prev);		
-		String newFileName = ("UserData" + increment);
-		
-		Scanner in = new Scanner(System.in);
-		
+
 		//run account creation page
 		System.out.println("We're happy to have you! Please provide your information.");
 		
@@ -39,22 +32,10 @@ public class Files {
 		System.out.println("Security Answer");
 		securityAnswer = in.nextLine();
 		
-		//while (newFileName.equals(fileName))
-		while(increment <= prev)
-		{
 		
-		increment++;
-		System.out.println(increment);
-		}
-		//fileName = newFileName;
-		prev = increment;
-		System.out.println(prev);
-		System.out.println(increment);
-		/*
-		PrintWriter userFile = new PrintWriter(newFileName + increment + ".txt");
+		PrintWriter userFile = new PrintWriter("user" + username + ".txt"); //reuse for bank account files but w/
 		
-		
-		userFile.println("User:" + increment);
+		userFile.println("User:" + username);
 		userFile.println("========================");
 		userFile.println("Username: "+ username);
 		userFile.println("Password: " + password);
@@ -62,8 +43,26 @@ public class Files {
 		userFile.println("Security Answer: " + securityAnswer);
 		userFile.println("========================");
 
-	userFile.close();
-	*/
+		System.out.println("File Created!");
+		System.out.println("Name: " + "user" + username + ".txt");
+		System.out.println("Lol");
+		//while (newFileName.equals(fileName))
+		
+		//fileExists = new File(fileName).exists();
+		//while(increment <= prev)
+		//while(fileExists)
+		//{
+		
+		//increment++;
+		//System.out.println(increment);
+		//}
+		//fileName = newFileName;
+		//prev = increment;
+		//System.out.println(prev);
+		//System.out.println(increment);
+		
+		//PrintWriter userFile = new PrintWriter(newFileName + username + ".txt");
+		userFile.close();
 	}
 	
 	public void WriteFile() {

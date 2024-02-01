@@ -1,9 +1,11 @@
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class Interface {
 
 	//instance variable roundup
-	private int selection; // find way to link to # of bank accounts for each user
-	
+	//private int selection; // find way to link to # of bank accounts for each user
+	private static Scanner in = new Scanner(System.in);
 	/*
 	 * Display Welcome screen
 	 * Utilize necessary data when needed
@@ -14,9 +16,40 @@ public class Interface {
 		System.out.println("[0] Log in");
 		System.out.println("[1] Create New Account");
 		System.out.println("[2] Change Password");
+		
+		int selection = in.nextInt();
+		Files file = new Files();
+		if (selection >= 0 && selection <= 2)
+		{
+			//switch statements in selections may be better / call selections
+			if (selection == 0)
+			{
+				//run log in page
+				System.out.println("Log in Page");
+
+			}
+			if (selection == 1)
+			{
+				//Files file = new Files()
+				try {
+					file.CreateUserFile();
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				}
+				
+			}
+			if(selection == 2)
+			{
+				//run change password page
+				System.out.println("Change Password Page");
+			}
+		}
+		else
+		{
+			System.out.println("Please enter a valid interger selection from 0-2");
+		}
 	}
-	
-	
+		
 	/*
 	 * happens when you select 0 (log in)
 	 * Display login Screen
