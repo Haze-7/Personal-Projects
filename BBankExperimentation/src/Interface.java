@@ -25,8 +25,7 @@ public class Interface {
 			if (selection == 0)
 			{
 				//run log in page
-				System.out.println("Log in Page");
-
+				Interface.LoginScreen();
 			}
 			if (selection == 1)
 			{
@@ -55,7 +54,7 @@ public class Interface {
 	 * Display login Screen
 	 */
 	public static void LoginScreen() {
-		System.out.println("Please Enter your Username and Password");
+		System.out.println("Please Enter your Username and Password:");
 		System.out.println("Username: "); // need to be able to input and then click enter
 		System.out.println("Password: "); //need to be able to input and then click enter
 	}
